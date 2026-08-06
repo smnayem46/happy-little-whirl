@@ -142,3 +142,87 @@
     color: var(--color-foreground);
   }
 }
+
+/* ============================================================
+   Birthday site styles.
+   Colors and fonts come from src/config/site.ts — no need to
+   edit anything here.
+   ============================================================ */
+
+.bd-root {
+  background-color: var(--bd-background);
+  color: var(--bd-text);
+  font-family: var(--bd-font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.bd-glass {
+  background: rgb(var(--bd-primary-rgb) / var(--bd-glass-opacity));
+  border: 1px solid rgb(255 255 255 / 0.12);
+  backdrop-filter: blur(14px);
+  color: var(--bd-text);
+}
+
+.bd-section {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bd-heading {
+  font-family: var(--bd-font-heading);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  line-height: 1.15;
+}
+
+.bd-body {
+  font-family: var(--bd-font-body);
+}
+
+.bd-gradient-text {
+  background: linear-gradient(90deg, var(--bd-primary), var(--bd-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bd-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.85rem 2rem;
+  font-family: var(--bd-font-body);
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(90deg, var(--bd-primary), var(--bd-secondary));
+  box-shadow: 0 10px 40px -12px rgb(var(--bd-primary-rgb) / 0.8);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bd-button:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.bd-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 40% at 20% 25%, rgb(var(--bd-primary-rgb) / 0.35), transparent 70%),
+    radial-gradient(45% 45% at 80% 30%, rgb(var(--bd-secondary-rgb) / 0.3), transparent 70%);
+  filter: blur(20px);
+}
+
+.bd-note-spin {
+  animation: bd-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes bd-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
