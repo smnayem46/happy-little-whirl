@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "title": "শুভ জন্মদিন",
+    "subtitle": "আজকের দিনটা শুধু তোমার জন্য।",
+    "button": "উৎসব শুরু করো"
+  },
+  "countdown": {
+    "heading": "তোমার দিনের অপেক্ষায়",
+    "days": "দিন",
+    "hours": "ঘণ্টা",
+    "minutes": "মিনিট",
+    "seconds": "সেকেন্ড",
+    "today": "আজই সেই দিন!"
+  },
+  "letter": {
+    "heading": "তোমার জন্য একটি চিঠি",
+    "openButton": "চিঠি খোলো",
+    "closeButton": "চিঠি বন্ধ করো"
+  },
+  "timeline": {
+    "heading": "আমাদের গল্প"
+  },
+  "gallery": {
+    "heading": "স্মৃতিগুলো",
+    "empty": "public/photos/ ফোল্ডারে ছবি যোগ করো"
+  },
+  "video": {
+    "heading": "তোমার জন্য ছোট্ট একটি ভিডিও",
+    "empty": "public/video.mp4 নামে ভিডিও যোগ করো"
+  },
+  "gifts": {
+    "heading": "তোমার উপহার",
+    "reveal": "দেখো"
+  },
+  "music": {
+    "play": "গান চালাও",
+    "pause": "গান থামাও"
+  },
+  "footer": {
+    "text": "ভালোবাসা দিয়ে তৈরি, শুধু তোমার জন্য।"
+  },
+  "language": {
+    "label": "ভাষা"
+  }
+}
