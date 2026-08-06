@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "title": "Happy Birthday",
+    "subtitle": "Today is all about celebrating you.",
+    "button": "Start Celebration"
+  },
+  "countdown": {
+    "heading": "Counting down to your day",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "today": "It's finally today!"
+  },
+  "letter": {
+    "heading": "A Letter For You",
+    "openButton": "Open the letter",
+    "closeButton": "Close the letter"
+  },
+  "timeline": {
+    "heading": "Our Story"
+  },
+  "gallery": {
+    "heading": "Moments",
+    "empty": "Add your photos to the folder public/photos/"
+  },
+  "video": {
+    "heading": "A Little Video For You",
+    "empty": "Add your video as public/video.mp4"
+  },
+  "gifts": {
+    "heading": "Your Gifts",
+    "reveal": "Reveal"
+  },
+  "music": {
+    "play": "Play music",
+    "pause": "Pause music"
+  },
+  "footer": {
+    "text": "Made with love, just for you."
+  },
+  "language": {
+    "label": "Language"
+  }
+}
