@@ -118,6 +118,6 @@ Happy Birthday ❤️`,
     video: true,
     gifts: true,
   },
-} as const;
+};
 
 export type SiteConfig = typeof siteConfig;
