@@ -42,14 +42,18 @@ function Page() {
       <MusicPlayer />
       <Hero />
       {siteConfig.sections.countdown ? <Countdown /> : null}
-      {siteConfig.sections.letter ? <Letter /> : null}
+      {siteConfig.sections.cake ? <Cake /> : null}
       {siteConfig.sections.timeline ? <Timeline /> : null}
+      {siteConfig.sections.gifts ? <Gifts /> : null}
+      {siteConfig.sections.letter ? <Letter /> : null}
       {siteConfig.sections.gallery ? <Gallery /> : null}
       {siteConfig.sections.video ? <VideoMessage /> : null}
-      {siteConfig.sections.gifts ? <Gifts /> : null}
-      <footer id="finale" className="pb-16 text-center text-sm opacity-60">
+      {siteConfig.sections.wishes ? <Wishes /> : null}
+      {siteConfig.sections.finale ? <Finale /> : null}
+      <footer className="pb-16 text-center text-sm opacity-60">
         {t("footer.text")}
       </footer>
+
     </main>
   );
 }
