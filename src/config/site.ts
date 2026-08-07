@@ -57,17 +57,12 @@ Happy Birthday ❤️`,
   ],
 
   /**
-   * Gallery photos.
-   * Put your images in the folder: public/photos/
-   * Name them 1.jpg, 2.jpg, 3.jpg ... then list them below.
+   * Gallery photos are AUTOMATIC.
+   * Just upload images into the folder: public/photos/
+   * (.jpg .jpeg .png .webp) — they appear in the gallery on their own,
+   * sorted by file name. Nothing to list here.
    */
-  gallery: [
-    "/photos/1.jpg",
-    "/photos/2.jpg",
-    "/photos/3.jpg",
-    "/photos/4.jpg",
-    "/photos/5.jpg",
-  ],
+
 
   /** Background music — replace the file public/music.mp3 (keep the name). */
   music: "/music.mp3",
