@@ -226,3 +226,59 @@
   0%, 100% { opacity: 1; }
   50% { opacity: 0.35; }
 }
+
+/* Celebration button tap effects */
+.bd-button-pop:active {
+  transform: scale(0.94);
+}
+
+.bd-button-pop.is-pressed {
+  animation: bd-button-pop 0.45s ease-out;
+}
+
+.bd-button-pop.is-pressed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 2px solid rgb(var(--bd-primary-rgb) / 0.7);
+  animation: bd-ring 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes bd-button-pop {
+  0% { transform: scale(0.94); }
+  45% { transform: scale(1.09); box-shadow: 0 14px 60px -10px rgb(var(--bd-primary-rgb) / 1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bd-ring {
+  0% { opacity: 0.9; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.8); }
+}
+
+.bd-confetti {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: bd-confetti 1.1s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+}
+
+@keyframes bd-confetti {
+  0% { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+  70% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(var(--bd-cx), calc(var(--bd-cy) + 40px)) rotate(var(--bd-cr)) scale(0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-confetti,
+  .bd-button-pop.is-pressed { animation: none; }
+}
+
