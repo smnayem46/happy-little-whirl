@@ -13,18 +13,43 @@ export function MusicPlayer() {
   }, []);
 
   useEffect(() => {
+    let done = false;
     const start = async () => {
       const el = ref.current;
       if (!el || !el.paused) return;
       try {
         await el.play();
+        done = true;
         setPlaying(true);
+        cleanupGestures();
       } catch {
         setPlaying(false);
       }
     };
+
+    // Browsers block autoplay until the user interacts; retry on first gesture.
+    const onGesture = () => {
+      if (!done) void start();
+    };
+    const opts = { passive: true } as AddEventListenerOptions;
+    const cleanupGestures = () => {
+      window.removeEventListener("pointerdown", onGesture);
+      window.removeEventListener("touchstart", onGesture);
+      window.removeEventListener("keydown", onGesture);
+      window.removeEventListener("scroll", onGesture);
+    };
+    window.addEventListener("pointerdown", onGesture, opts);
+    window.addEventListener("touchstart", onGesture, opts);
+    window.addEventListener("keydown", onGesture);
+    window.addEventListener("scroll", onGesture, opts);
     window.addEventListener(CELEBRATE_EVENT, start);
-    return () => window.removeEventListener(CELEBRATE_EVENT, start);
+
+    void start();
+
+    return () => {
+      cleanupGestures();
+      window.removeEventListener(CELEBRATE_EVENT, start);
+    };
   }, []);
 
   const toggle = async () => {
@@ -45,7 +70,14 @@ export function MusicPlayer() {
 
   return (
     <>
-      <audio ref={ref} src={siteConfig.music} loop preload="none" />
+      <audio
+        ref={ref}
+        src={siteConfig.music}
+        loop
+        autoPlay
+        preload="auto"
+        onError={() => setPlaying(false)}
+      />
       <button
         type="button"
         onClick={toggle}
