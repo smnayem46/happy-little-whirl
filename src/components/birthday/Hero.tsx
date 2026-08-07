@@ -25,7 +25,7 @@ function makeBurst(id: number): Burst {
         y: Math.sin(angle) * distance,
         r: Math.random() * 540 - 270,
         delay: Math.random() * 0.08,
-        color: colors[i % colors.length],
+        color: colors[i % colors.length] as string,
       };
     }),
   };
