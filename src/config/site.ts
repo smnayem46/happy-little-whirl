@@ -15,7 +15,7 @@ export const siteConfig = {
   name: "SADIA",
 
   /** Birthday date (YYYY-MM-DD). Drives the countdown. */
-  birthdayDate: "2026-08-20",
+  birthdayDate: "2026-08-07",
 
   /** Language of the site: "en" (English) or "bn" (Bangla). */
   language: "en" as "en" | "bn",
@@ -111,11 +111,11 @@ Happy Birthday ❤️`,
 
   /** Which sections to show. Set to false to hide a section. */
   sections: {
-    countdown: true,
+    countdown: false,
     letter: true,
-    timeline: true,
+    timeline: false,
     gallery: true,
-    video: true,
+    video: false,
     gifts: true,
   },
 };
