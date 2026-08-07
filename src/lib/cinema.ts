@@ -11,6 +11,8 @@ import { siteConfig } from "@/config/site";
 export const CELEBRATE_EVENT = "bd:celebrate";
 export const OPEN_LETTER_EVENT = "bd:open-letter";
 export const REVEAL_GIFTS_EVENT = "bd:reveal-gifts";
+export const BLOW_CANDLES_EVENT = "bd:blow-candles";
+export const FIREWORKS_EVENT = "bd:fireworks";
 
 let running = false;
 let cancelled = false;
@@ -19,7 +21,7 @@ export function isSequenceRunning() {
   return running;
 }
 
-function emit(name: string) {
+export function emit(name: string) {
   window.dispatchEvent(new Event(name));
 }
 
@@ -27,7 +29,7 @@ function prefersReducedMotion() {
   return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 }
 
-function scrollToId(id: string) {
+export function scrollToId(id: string) {
   const el = document.getElementById(id);
   if (!el) return;
   el.scrollIntoView({
@@ -45,11 +47,14 @@ function buildSteps(): { id: string; hold: number; action?: string }[] {
   const s = siteConfig.sections;
   const steps: { id: string; hold: number; action?: string }[] = [];
   if (s.countdown) steps.push({ id: "countdown", hold: 3500 });
+  if (s.cake) steps.push({ id: "cake", hold: 5000, action: BLOW_CANDLES_EVENT });
+  if (s.timeline) steps.push({ id: "timeline", hold: 5000 });
   if (s.gifts) steps.push({ id: "gifts", hold: 4500, action: REVEAL_GIFTS_EVENT });
   if (s.letter) steps.push({ id: "letter", hold: 6000, action: OPEN_LETTER_EVENT });
-  if (s.timeline) steps.push({ id: "timeline", hold: 4500 });
   if (s.gallery) steps.push({ id: "gallery", hold: 5000 });
   if (s.video) steps.push({ id: "video", hold: 5000 });
+  if (s.wishes) steps.push({ id: "wishes", hold: 7000 });
+  if (s.finale) steps.push({ id: "finale", hold: 4000, action: FIREWORKS_EVENT });
   steps.push({ id: "finale", hold: 1500 });
   return steps;
 }

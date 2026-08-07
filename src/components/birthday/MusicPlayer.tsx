@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/lib/language";
-import { CELEBRATE_EVENT } from "@/lib/cinema";
+import { CELEBRATE_EVENT, FIREWORKS_EVENT } from "@/lib/cinema";
 
 export function MusicPlayer() {
   const { t } = useLanguage();
@@ -10,6 +10,26 @@ export function MusicPlayer() {
 
   useEffect(() => {
     if (ref.current) ref.current.volume = 0.5;
+  }, []);
+
+  // Soften the music slightly once the fireworks finale begins.
+  useEffect(() => {
+    const duck = () => {
+      const el = ref.current;
+      if (!el) return;
+      const target = 0.28;
+      const step = () => {
+        if (el.volume <= target + 0.01) {
+          el.volume = target;
+          return;
+        }
+        el.volume = Math.max(target, el.volume - 0.02);
+        window.setTimeout(step, 120);
+      };
+      step();
+    };
+    window.addEventListener(FIREWORKS_EVENT, duck);
+    return () => window.removeEventListener(FIREWORKS_EVENT, duck);
   }, []);
 
   useEffect(() => {

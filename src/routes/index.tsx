@@ -5,13 +5,17 @@ import { themeStyle } from "@/lib/theme";
 import { LanguageProvider, useLanguage } from "@/lib/language";
 import { Hero } from "@/components/birthday/Hero";
 import { Countdown } from "@/components/birthday/Countdown";
+import { Cake } from "@/components/birthday/Cake";
 import { Letter } from "@/components/birthday/Letter";
 import { Timeline } from "@/components/birthday/Timeline";
 import { Gallery } from "@/components/birthday/Gallery";
 import { VideoMessage } from "@/components/birthday/VideoMessage";
 import { Gifts } from "@/components/birthday/Gifts";
+import { Wishes } from "@/components/birthday/Wishes";
+import { Finale } from "@/components/birthday/Finale";
 import { MusicPlayer } from "@/components/birthday/MusicPlayer";
 import { LanguageSwitcher } from "@/components/birthday/LanguageSwitcher";
+
 
 const title = `Happy Birthday ${siteConfig.name}`;
 const description = `${siteConfig.heroSubtitle} A little birthday website for ${siteConfig.name} — letter, memories, photos and gifts.`;
@@ -38,14 +42,18 @@ function Page() {
       <MusicPlayer />
       <Hero />
       {siteConfig.sections.countdown ? <Countdown /> : null}
-      {siteConfig.sections.letter ? <Letter /> : null}
+      {siteConfig.sections.cake ? <Cake /> : null}
       {siteConfig.sections.timeline ? <Timeline /> : null}
+      {siteConfig.sections.gifts ? <Gifts /> : null}
+      {siteConfig.sections.letter ? <Letter /> : null}
       {siteConfig.sections.gallery ? <Gallery /> : null}
       {siteConfig.sections.video ? <VideoMessage /> : null}
-      {siteConfig.sections.gifts ? <Gifts /> : null}
-      <footer id="finale" className="pb-16 text-center text-sm opacity-60">
+      {siteConfig.sections.wishes ? <Wishes /> : null}
+      {siteConfig.sections.finale ? <Finale /> : null}
+      <footer className="pb-16 text-center text-sm opacity-60">
         {t("footer.text")}
       </footer>
+
     </main>
   );
 }

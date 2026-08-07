@@ -28,33 +28,75 @@ export const siteConfig = {
   /** The birthday letter. Write anything you want between the ` ` marks. */
   letter: `Dear Sadia,
 
-Today isn't simply another day on the calendar. It's the day the world got a
-little brighter, a little warmer, a little kinder — because you arrived in it.
+Today isn't simply another day on the calendar — it's the day the world got a
+little brighter, a little warmer, a little kinder, because you arrived in it.
 
-Thank you for every laugh, every late-night talk, and every small moment that
-somehow turned into a memory I keep going back to.
+Thank you for being such an amazing friend: for every laugh, every honest
+conversation, and every small moment that somehow turned into a memory worth
+keeping.
 
-May this year bring you everything you quietly wish for.
+I hope this year brings you countless beautiful memories, good health and all
+the success you deserve.
 
-Happy Birthday ❤️`,
+Keep smiling and keep shining.
+
+Happy Birthday! 🎉`,
+
+  /** Birthday cake section. */
+  cake: {
+    heading: "Make a Wish",
+    subtitle: "Close your eyes, make a wish, and blow out the candles.",
+    button: "🎂 Blow the Candles",
+    /** Number of candles on the cake. */
+    candles: 5,
+    /** Shown after the candles are blown out. */
+    wishMade: "Wish made ✨ May all your dreams come true.",
+  },
 
   /** Timeline entries — add or remove as many as you like. */
   timeline: [
     {
-      title: "Beginning",
-      description:
-        "Where it all started — the first hello that changed everything.",
+      icon: "🌸",
+      title: "Another Wonderful Year",
+      description: "Continue learning, growing and smiling.",
     },
     {
-      title: "Memory",
-      description:
-        "All the little moments in between that became my favourite ones.",
+      icon: "⭐",
+      title: "Keep Chasing Dreams",
+      description: "Never stop believing in yourself.",
     },
     {
-      title: "Future",
-      description: "Every chapter still waiting to be written together.",
+      icon: "🎉",
+      title: "Celebrate Every Achievement",
+      description: "Every small success matters.",
+    },
+    {
+      icon: "🌍",
+      title: "New Adventures Await",
+      description: "May this year be full of wonderful experiences.",
     },
   ],
+
+  /** Final wishes — the big full-screen message. */
+  wishes: {
+    title: "Happy Birthday",
+    lines: [
+      "Wishing you a year filled with happiness, good health, success, peace, new opportunities, and unforgettable memories.",
+      "Thank you for being such a wonderful friend.",
+      "May every dream you have move one step closer to reality.",
+      "Keep smiling. Keep shining.",
+      "Enjoy your special day!",
+    ],
+  },
+
+  /** Fireworks finale — the grand ending. */
+  finale: {
+    title: "🎉 Happy Birthday, SADIA! 🎉",
+    lines: [
+      "Hope this special day brings you lots of joy, laughter, great memories, and everything that makes you happy.",
+      "Wishing you all the best for the year ahead.",
+    ],
+  },
 
   /**
    * Gallery photos are AUTOMATIC.
@@ -62,7 +104,6 @@ Happy Birthday ❤️`,
    * (.jpg .jpeg .png .webp) — they appear in the gallery on their own,
    * sorted by file name. Nothing to list here.
    */
-
 
   /** Background music — replace the file public/music.mp3 (keep the name). */
   music: "/music.mp3",
@@ -73,16 +114,16 @@ Happy Birthday ❤️`,
   /** Gift cards — add as many as you want. */
   gifts: [
     {
-      title: "Gift 1",
-      message: "A whole day where you decide everything and I just say yes.",
+      title: "A Wish",
+      message: "Wishing you endless happiness in everything you do.",
     },
     {
-      title: "Gift 2",
-      message: "That trip we keep talking about — let's finally book it.",
+      title: "A Promise",
+      message: "You deserve all the success in the world — I'll always cheer you on.",
     },
     {
-      title: "Gift 3",
-      message: "One promise: I'm always in your corner.",
+      title: "A Thank You",
+      message: "I'm grateful to have a friend like you.",
     },
   ],
 
@@ -107,11 +148,14 @@ Happy Birthday ❤️`,
   /** Which sections to show. Set to false to hide a section. */
   sections: {
     countdown: false,
+    cake: true,
     letter: true,
-    timeline: false,
+    timeline: true,
     gallery: true,
     video: false,
     gifts: true,
+    wishes: true,
+    finale: true,
   },
 };
 
