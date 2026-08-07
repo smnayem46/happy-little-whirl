@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/lib/language";
+import { OPEN_LETTER_EVENT } from "@/lib/cinema";
 
 export function Letter() {
   const { t } = useLanguage();
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const openIt = () => setOpen(true);
+    window.addEventListener(OPEN_LETTER_EVENT, openIt);
+    return () => window.removeEventListener(OPEN_LETTER_EVENT, openIt);
+  }, []);
+
 
   return (
     <section className="bd-section" id="letter">

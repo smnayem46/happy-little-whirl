@@ -43,7 +43,7 @@ function Page() {
       {siteConfig.sections.gallery ? <Gallery /> : null}
       {siteConfig.sections.video ? <VideoMessage /> : null}
       {siteConfig.sections.gifts ? <Gifts /> : null}
-      <footer className="pb-16 text-center text-sm opacity-60">
+      <footer id="finale" className="pb-16 text-center text-sm opacity-60">
         {t("footer.text")}
       </footer>
     </main>

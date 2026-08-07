@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/lib/language";
+import { runCelebration, isSequenceRunning } from "@/lib/cinema";
 
 type Burst = {
   id: number;
@@ -40,7 +41,9 @@ export function Hero() {
   const [bursts, setBursts] = useState<Burst[]>([]);
   const [pressed, setPressed] = useState(false);
 
-  const celebrate = () => {
+  const celebrate = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (isSequenceRunning()) return;
     const id = Date.now();
     setBursts((b) => [...b, makeBurst(id)]);
     setPressed(true);
@@ -49,6 +52,7 @@ export function Hero() {
       () => setBursts((b) => b.filter((x) => x.id !== id)),
       1400,
     );
+    void runCelebration();
   };
 
   return (
