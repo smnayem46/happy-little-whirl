@@ -44,22 +44,15 @@ Happy Birthday ❤️`,
 
 Write anything between the backticks (`` ` ``). Blank lines and emojis work.
 
-## 4. Change the photos
+## 4. Change the photos (automatic)
 
 1. Put your images in the folder `public/photos/`
-2. Name them `1.jpg`, `2.jpg`, `3.jpg`, ...
-3. List them in `src/config/site.ts`:
+2. That's it — every image there shows up in the gallery automatically.
 
-```ts
-gallery: [
-  "/photos/1.jpg",
-  "/photos/2.jpg",
-  "/photos/3.jpg",
-],
-```
+Supported types: `.jpg`, `.jpeg`, `.png`, `.webp`. Photos are sorted by file
+name (`1.jpg`, `2.jpg`, `10.jpg` sort in the natural order). Delete a file to
+remove it from the gallery. You never list photos in any file.
 
-Add or remove lines to add or remove photos. `.png` and `.webp` work too —
-just write the same file name you uploaded.
 
 ## 5. Change the music
 
