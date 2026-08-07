@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/lib/language";
+import { REVEAL_GIFTS_EVENT } from "@/lib/cinema";
 
 export function Gifts() {
   const { t } = useLanguage();
   const [open, setOpen] = useState<Record<number, boolean>>({});
+
+  useEffect(() => {
+    const revealAll = () => {
+      siteConfig.gifts.forEach((_, i) =>
+        window.setTimeout(() => setOpen((o) => ({ ...o, [i]: true })), i * 500),
+      );
+    };
+    window.addEventListener(REVEAL_GIFTS_EVENT, revealAll);
+    return () => window.removeEventListener(REVEAL_GIFTS_EVENT, revealAll);
+  }, []);
+
 
   return (
     <section className="bd-section" id="gifts">

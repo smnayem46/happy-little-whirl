@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 import { useLanguage } from "@/lib/language";
+import { CELEBRATE_EVENT } from "@/lib/cinema";
 
 export function MusicPlayer() {
   const { t } = useLanguage();
@@ -9,6 +10,21 @@ export function MusicPlayer() {
 
   useEffect(() => {
     if (ref.current) ref.current.volume = 0.5;
+  }, []);
+
+  useEffect(() => {
+    const start = async () => {
+      const el = ref.current;
+      if (!el || !el.paused) return;
+      try {
+        await el.play();
+        setPlaying(true);
+      } catch {
+        setPlaying(false);
+      }
+    };
+    window.addEventListener(CELEBRATE_EVENT, start);
+    return () => window.removeEventListener(CELEBRATE_EVENT, start);
   }, []);
 
   const toggle = async () => {
